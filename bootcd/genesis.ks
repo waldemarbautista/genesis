@@ -56,6 +56,11 @@ util-linux-ng
 vim-minimal
 yum
 
+# for setting up the Dell Linux Repository
+# http://linux.dell.com/repo/hardware/latest/
+wget
+perl
+
 # packages below here will be removed as part of %post to keep the image smaller
 # unless they are needed for genesis code
 
@@ -198,6 +203,8 @@ EOL
 ##rm -f /etc/sysconfig/selinux
 ##ln -s ../selinux/config /etc/sysconfig/selinux
 
+echo '>>>> set up the Dell Linux Repository'
+wget -q -O - http://linux.dell.com/repo/hardware/latest/bootstrap.cgi | bash
 
 # ruby now installed above
 # build latest stable ruby

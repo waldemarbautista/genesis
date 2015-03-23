@@ -2,7 +2,7 @@ Facter.add(:raw_asset_tag) do
   setcode do
     product = Facter.value(:productname)
     case product
-    when /R720/i
+    when /R720/i, /R515/i
       # FRU in R720 is shady, we cant use dmidecode or ipmitool fru print reliably
       output = Facter::Util::Resolution.exec('/opt/dell/toolkit/bin/syscfg --asset')
       output.split('=')[1].strip

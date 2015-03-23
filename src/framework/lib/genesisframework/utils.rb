@@ -26,7 +26,7 @@ module Genesis
 
       def self.collins
         if @@collins_conn.nil?
-          cfg = { :host => self.config_cache['collins']['host'], :username => self.config_cache['collins']['username'], :password => self.config_cache['collins']['password'] }
+          cfg = { :host => self.config_cache[:collins][:host], :username => self.config_cache[:collins][:username], :password => self.config_cache[:collins][:password] }
           @@collins_conn = ::Collins::Client.new(cfg)
         end
 

@@ -19,9 +19,12 @@ Facter.add(:asset_tag) do
     tag = Facter.value(:raw_asset_tag)
     unless tag.nil?
       tag.strip!
-      case tag
-      when /^(\d{6})$/
-        $1
+    #  case tag
+    #  when /^(\d{6})$/
+    #    $1
+    #  end
+      if tag =~ /^[\w_-]+$/
+        tag
       end
     end
   end
